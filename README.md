@@ -9,7 +9,7 @@ Eval-time random number generator for Nix without IFD
 - 🔥 Blazingly slow
 - 🙏 Perfectly uniform distributions if you believe in it
 - 🚀 Impure, unreproducible, and indeterministic
-- 🔒 Cryptographically insecure
+- 🔒 Cryptographically secure, perchance, I think?
 - ⚡ Significantly more efficient than all known alternatives
 - 💖 Made with love
 

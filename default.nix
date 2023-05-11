@@ -4,12 +4,11 @@ let
   inherit (builtins)
     genList
     hashString
-    match
+    replaceStrings
     readFile
     substring
     ;
   inherit (lib)
-    concatStrings
     fix
     flip
     mod
@@ -17,17 +16,8 @@ let
     replicate
     ;
 
-  last2 = "[0-9]*([0-9]{2})";
-
-  seed = pipe /proc/stat [
-    readFile
-    (match ''
-      .*
-      intr ${last2}.*
-      ctxt ${last2}.*
-      softirq ${last2}.*'')
-    concatStrings
-  ];
+  seed = replaceStrings [ "-" "\n" ] [ "" "" ]
+    (readFile /proc/sys/kernel/random/uuid);
 
   hash = hashString "sha256";
 
